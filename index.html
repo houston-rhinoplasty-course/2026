@@ -1595,16 +1595,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
     <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
     <script>
-      pannellum.viewer('panorama-viewer', {
+      var pviewer = pannellum.viewer('panorama-viewer', {
         type: 'equirectangular',
         panorama: 'https://houston-rhinoplasty-course.github.io/2026/images/lab360.JPG',
         autoLoad: true,
         autoRotate: -2,
         compass: false,
         showFullscreenCtrl: true,
-        showZoomCtrl: false,
+        showZoomCtrl: true,
         hfov: 100,
-        mouseZoom: true
+        mouseZoom: true,
+        preview: 'https://houston-rhinoplasty-course.github.io/2026/images/lab360.JPG'
+      });
+      // Force load when photos tab is clicked
+      document.getElementById('nav-photos').addEventListener('click', function() {
+        setTimeout(function() { if(pviewer) pviewer.resize(); }, 100);
       });
     </script>
 
