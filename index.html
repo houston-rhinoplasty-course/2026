@@ -1529,6 +1529,10 @@
     <p>Images from the 2026 Houston Rhinoplasty Course</p>
   </div>
 
+    <div style="display:flex;justify-content:center;padding:48px 48px 0;background:var(--cream);">
+    <img src="https://houston-rhinoplasty-course.github.io/2026/images/group2026.png" alt="2026 Group Photo" style="max-height:80vh;width:auto;max-width:100%;object-fit:contain;border:1px solid var(--border);">
+  </div>
+
   <div style="max-width:960px;margin:0 auto;padding:64px 48px;display:flex;flex-direction:column;gap:40px;">
 
     <!-- LECTURE CARD -->
@@ -1583,13 +1587,13 @@
 
   
   
-    <!-- 360 CARD -->
-    <div class="photo-card">
-      <div class="photo-card-header">
-        <div class="photo-card-label">POV: You Are Inside the Dissection Lab</div>
-        <div class="photo-card-counter" style="font-size:0.7rem;color:rgba(255,255,255,0.4);">360° &middot; Click &amp; drag to look around</div>
+    <!-- 360 SECTION -->
+    <div style="margin:0;border:1px solid var(--border);border-top:3px solid var(--gold);overflow:hidden;">
+      <div style="background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:18px 48px;">
+        <div style="font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-light);font-weight:500;">POV: You Are Inside the Dissection Lab</div>
+        <div style="font-size:0.7rem;color:rgba(255,255,255,0.4);">360° &middot; Click &amp; drag to look around</div>
       </div>
-      <div style="width:75%;height:600px;margin:0 auto;" id="panorama-viewer"></div>
+      <div style="width:100%;height:620px;" id="panorama-viewer"></div>
     </div>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
@@ -1597,7 +1601,7 @@
     <script>
       var pviewer = pannellum.viewer('panorama-viewer', {
         type: 'equirectangular',
-        panorama: 'https://houston-rhinoplasty-course.github.io/2026/images/lab360.JPG',
+        panorama: 'https://houston-rhinoplasty-course.github.io/2026/images/lab360v2.JPEG',
         autoLoad: true,
         autoRotate: -2,
         compass: false,
@@ -1605,7 +1609,7 @@
         showZoomCtrl: true,
         hfov: 100,
         mouseZoom: true,
-        preview: 'https://houston-rhinoplasty-course.github.io/2026/images/lab360.JPG'
+        preview: 'https://houston-rhinoplasty-course.github.io/2026/images/lab360v2.JPEG'
       });
       // Force load when photos tab is clicked
       document.getElementById('nav-photos').addEventListener('click', function() {
@@ -1710,11 +1714,6 @@
             <div class="archive-speaker-role">Sr. Simulation Specialist</div>
           </div>
         </div>
-
-
-        <!-- Photo Gallery -->
-        <div class="archive-section-label">Photo Gallery</div>
-        <div class="archive-gallery" id="gallery-2026"></div>
 
       </div>
     </div>
@@ -1847,20 +1846,6 @@
   function toggleArchive(id) {
     document.getElementById(id).classList.toggle('open');
   }
-
-  // Populate 2026 gallery from existing lecture photos
-  (function() {
-    const gallery = document.getElementById('gallery-2026');
-    if (!gallery) return;
-    const base = 'https://houston-rhinoplasty-course.github.io/2026/images';
-    for (let i = 2; i <= 19; i++) {
-      const img = document.createElement('img');
-      img.src = base + '/lecture' + i + '.jpg';
-      img.alt = 'Course photo ' + (i-1);
-      img.onerror = function() { this.parentElement && this.remove(); };
-      gallery.appendChild(img);
-    }
-  })();
 
   function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
